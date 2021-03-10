@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='../static/style.css'>
+    <script src="https://kit.fontawesome.com/d8e35abd5c.js" crossorigin="anonymous"></script>
+    <title>Homepage</title> 
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }  
+        
+        .bg{
+            height:100%;
+            background-image: url("{{url_for('static',filename='house3.jpg')}}");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(2px);
+            -webkit-filter: blur(2px);
+            }
+
+        .dashoard-container{
+            position:absolute;
+            top:0;
+            width:100%;
+        }
+        
+        .navbar{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            height:51px;
+        }
+
+        .navbar-items {
+            float: left;
+        }
+
+        .navbar-items a{
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar-items a:hover{
+            color:black;
+            background-color: white;
+        } 
+
+        .dropdown{
+            float:right;
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top:51px;
+            right:0px;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="dashoard-container"> 
+        <ul class="navbar">
+            <li class="navbar-items"><a href="{{url_for('dashboard')}}">Home</a></li>
+            <!--<li class="navbar-items"><a href="{{url_for('chart')}}">Chart</a></li>
+            <li class="navbar-items"><a href="#contact">Contact Us</a></li>-->
+            {% if session['logged_in'] %}   
+            <div class="dropdown">
+                <li class="navbar-items"><a><i class="far fa-user fa-lg"></i></a></li>
+                <div class="dropdown-content">
+                    <li><a class="active" href="{{url_for('update_profile')}}">My Profile</a></li>
+                    <li><a class="active" href="{{url_for('add_property')}}">Add Property</a></li>
+                    <li><a class="active" href="{{url_for('my_properties')}}">My Properties</a></li>
+                    <li><a class="active" href="{{url_for('logout')}}">Logout</a></li>    
+                </div>
+            </div>
+        {% else %}
+                <li class="navbar-items" style="float:right"><a class="active" href="{{url_for('login')}}">Login</a></li>
+        {% endif %}
+          </ul>
+
+        <form class="searching" method="POST" action="{{url_for('search')}}">
+            <input name="searchbar" type="search" placeholder="Enter Area Name Here ..." autofocus/>
+            <button type="submit" class="searchbtn">Go</button>    
+        </form>
+    </div>
+</body>
+</html>

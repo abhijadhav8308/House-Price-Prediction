@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Add Property</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/style.css">
+	<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYzXj5wF4L6mChyyc5xwfb2QT1QEZ9VN8&callback=initMap&libraries=&v=weekly"
+      defer></script>
+    <style>
+		body{
+			background-color: #f2f2f2;
+		}
+		.container-login100-form-btn{
+			width:10%;
+			margin-left: 45%;
+		}
+    </style>
+</head>
+<body>
+	{% extends "header.html" %}
+
+	{% block content %}
+	<form method="POST" action="">
+	<div class="parent-container">
+		<div class="left">
+			<div class="subsection">
+				<div class="choice">
+					<div class="labeldiv">
+						<label for="bedroom">Bedroom:</label>
+					</div>
+					<select id="bedroom" name="bedroom " required>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+					</select>
+				</div>
+
+				<div class="choice">
+					<div class="labeldiv">
+						<label for="bathroom">Bathroom:</label>
+					</div>
+					<select id="bathroom" name="bathroom" required>
+						<option value="1">1 bathroom only</option>
+						<option value="1.25">1 with shower</option>
+						<option value="1.50">1 with toilet</option>
+						<option value="1.75">1 with both</option>
+						<option value="2">2 bathroom only</option>
+						<option value="2.25">2 with shower</option>
+						<option value="2.50">2 with toilet</option>
+						<option value="2.75">2 with both</option>
+						<option value="3">3 bathroom only</option>
+						<option value="3.25">3 with shower</option>
+						<option value="3.50">3 with toilet</option>
+						<option value="3.75">3 with both</option>
+						<option value="4">4 bathroom only</option>
+						<option value="4.25">4 with shower</option>
+						<option value="4.50">4 with toilet</option>
+						<option value="4.75">4 with both</option>
+						<option value="5">5 bathroom only</option>
+						<option value="5.25">5 with shower</option>
+						<option value="5.50">5 with toilet</option>
+						<option value="5.75">5 with both</option>
+						<option value="6">6 bathroom only</option>
+						<option value="6.25">6 with shower</option>
+						<option value="6.50">6 with toilet</option>
+						<option value="6.75">6 with both</option>
+					</select>
+				</div>
+
+				<div class="choice">
+					<div class="labeldiv">
+						<label for="floors">Floors:</label>
+					</div>
+					<select id="floors" name="floors" required>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>
+				</div>
+				
+				<div class="choice">	
+					<div class="labeldiv">
+						<label for="view">View:</label>
+					</div>
+					<select id="view" name="view" required>
+						<option value="0">1</option>
+						<option value="1">2</option>
+						<option value="2">3</option>
+						<option value="3">4</option>
+						<option value="4">5</option>
+					</select>
+				</div>
+				
+				<div class="choice">
+					<div class="labeldiv">
+						<label for="condition">Condition:</label>
+					</div>
+					<select id="condition" name="condition" required>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</div>
+
+				<div class="choice">
+					<div class="labeldiv">
+						<label for="grade">Grade:</label>
+					</div>
+					<select id="grade" name="grade" required>
+					<option value="3">Average Quality Construction</option>
+					<option value="7">Good Quality Construction</option>
+					<option value="13">Best Quality Construction</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="mid_container">
+		<div class="middle">
+			<div class="subsection">
+				<div class="choice">
+					<div class="labeldiv">
+						<label for="Sqft_living">Sqft Living:</label>
+					</div>
+					<input type="number" name="Sqft_living" required/>
+				</div>
+
+				<div class="choice">
+					<div class="labeldiv">
+						<label for="Sqft_living15">Sqft Living 15:</label>
+					</div>
+					<input type="number" name="Sqft_living15" required/>
+				</div>
+				<div class="choice">
+					<div class="labeldiv">
+						<label for="Sqft_lot">Sqft Lot:</label>
+					</div>
+					<input type="number" name="Sqft_lot" required/>
+				</div>
+				<div class="choice">
+					<div class="labeldiv">
+						<label for="Sqft_lot15">Sqft Lot 15:</label>
+					</div>
+					<input type="number" name="Sqft_lot15"required/>
+				</div>
+				<div class="choice">
+					<div class="labeldiv">
+						<label for="Sqft_above">Sqft Above:</label>
+					</div>
+					<input type="number" name="Sqft_above" required/>
+				</div>
+				<div class="choice">
+					<div class="labeldiv">
+						<label for="Sqft_basement">Sqft Basement:</label>
+					</div>
+					<input type="number" name="Sqft_basement" required/>
+				</div>
+			</div>
+		</div>
+		<div class="middle2">
+			<div class="subsection">
+				<div class="choice">
+					<div class="labeldiv">
+						<label for="Year_Built">Year Built:</label>
+					</div>
+					<input type="number" name="Year_Built" required/>
+				</div>
+
+				<div class="choice">
+					<div class="labeldiv">
+						<label for="Zipcode">Zipcode:</label>
+					</div>
+					<input type="number" name="Zipcode" required/>
+				</div>
+
+				<div class="choice">
+					<div class="labeldiv">
+						<label for="Waterfront">Waterfront:</label>
+					</div>
+					<input type="radio" id="Waterfront_yes" name="Waterfront" value="1" required>
+					<label for="Waterfront_yes">Yes</label>
+					<input type="radio" id="Waterfront_no" name="Waterfront" value="0" required>
+					<label for="Waterfront_no">No</label>
+				</div>
+
+				<div class="choice">
+					<div class="labeldiv">
+						<label for="Year_Renovated">Year Renovated:</label>
+					</div>
+					<input type="number" name="Year_Renovated" required/>
+				</div>
+
+				<div class="choice">
+					<div class="labeldiv">
+						<label for="Price">Price:</label>
+					</div>
+					<input type="number" name="Price" required/>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div id="google_map" class="google_map"></div>
+    </div>
+	<div class="container-login100-form-btn">
+		<div class="wrap-login100-form-btn">
+			<div class="login100-form-bgbtn"></div>
+			<button class="login100-form-btn">
+				Add
+			</button>
+		</div>
+	</div>
+	<input type="text" value="" id="lat" name="lat" style="visibility:hidden;"/>
+	<input type="text" value="" id="lng" name="lng" style="visibility:hidden;"/>
+
+	</form>
+	<script>
+		function initMap() {
+		const myLatlng = { lat: 47.52373739701417, lng: -122.251852635886 };
+		const map = new google.maps.Map(document.getElementById("google_map"), {
+			zoom: 4,
+			center: myLatlng,
+		});
+
+		let infoWindow = new google.maps.InfoWindow({
+			content: "Click the map to get Lat/Lng of your house!",
+			position: myLatlng,
+		});
+		infoWindow.open(map);
+		map.addListener("click", (mapsMouseEvent) => {
+			infoWindow.close();
+			infoWindow = new google.maps.InfoWindow({
+			position: mapsMouseEvent.latLng,
+			});
+			
+			var location = JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2);
+			location = JSON.parse(location);
+
+			document.getElementById("lat").value = location['lat']
+			document.getElementById("lng").value = location['lng']
+
+			infoWindow.setContent(
+			JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
+			);
+			infoWindow.open(map);
+		});
+		}
+	</script>
+	{% endblock %}
+</body>
+</html>

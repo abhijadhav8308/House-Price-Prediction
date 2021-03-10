@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/style.css">
+	<style>
+		header{
+			text-align:center;
+			font-size: 35px;
+			margin-top:30px;
+			height:40px;
+		}
+		.container{
+			height:100px;
+			background-color: aqua;
+		}
+		img{
+			height:auto;
+			width:100%;
+		}
+		.sub-container{
+			float:left;
+			width:30%;
+			height:100%;
+			border: 1px solid #777;
+			margin:20px;
+		}
+
+		ul li a{
+			color:black;
+		}
+	</style>
+</head>
+<body>
+	{% extends "header.html" %}
+
+	{% block content %}
+	<header>My Properties</header>
+	<div class="continer">
+		{%for i in range(result|length)%}
+		<div class="sub-container">
+			<img src="{{url_for('static',filename='2.jpg')}}">
+			<div class="info">
+				<h2>{{result[i][3]}} Bedroom House Located at {{area_dict[result[i][-6]|int]}}</h2>
+				<br>
+				{% if(result[i][10] == 5) %}
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star checked"></a>
+                {% elif(result[i][10] == 4) %}
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star "></a>
+                {% elif(result[i][10] == 3) %}
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star "></a>
+                    <a class="fa fa-star "></a>
+				{% elif(result[i][10] == 2) %}
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star "></a>
+                    <a class="fa fa-star "></a>
+                    <a class="fa fa-star "></a>
+   				{% elif(result[i][10] == 1) %}
+                	<a class="fa fa-star checked"></a>
+                    <a class="fa fa-star "></a>
+                    <a class="fa fa-star "></a>
+                    <a class="fa fa-star "></a>
+                    <a class="fa fa-star "></a>
+				{% endif %}
+               <ul>  
+                    <li>
+                        <a class="item-desc">Area : {{result[i][5]}}sqft</a>
+                    </li>
+                    <li>
+                        <a class="item-desc">Year Built : {{result[i][8]}}</a>
+                    </li>
+                    <li>
+                        <a class="item-desc">Price : {{result[i][2]}} $</a>
+                    </li>
+                </ul> 
+			</div>
+		</div>
+		{% endfor %}	
+	</div>
+	{% endblock %}
+</body>
+</html>
