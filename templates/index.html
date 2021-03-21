@@ -89,8 +89,6 @@
     <div class="dashoard-container"> 
         <ul class="navbar">
             <li class="navbar-items"><a href="{{url_for('dashboard')}}">Home</a></li>
-            <!--<li class="navbar-items"><a href="{{url_for('chart')}}">Chart</a></li>
-            <li class="navbar-items"><a href="#contact">Contact Us</a></li>-->
             {% if session['logged_in'] %}   
             <div class="dropdown">
                 <li class="navbar-items"><a><i class="far fa-user fa-lg"></i></a></li>

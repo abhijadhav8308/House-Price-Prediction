@@ -60,7 +60,10 @@
                     <a class="item-desc">{{"Year Built : "+data[0][-9]|string}}</a>
                 </li>
                 <li>
-                    <a class="item-desc">{{"Price : "+data[0][2]|string+" $"}}</a>
+                    <a class="item-desc">{{"Asking Price : "+data[0][2]|string+" $"}}</a>
+                </li>
+                <li>
+                    <a class="item-desc">{{"Predicted Price : "+pred_val|string+" $"}}</a>
                 </li>
                 <li>
                     <a class="item-desc">{{"Bedrooms : "+data[0][3]|string}}</a>
@@ -115,11 +118,6 @@
         </div>
     </div>
     <canvas id="myChart"></canvas>
-    <p>The ideal value should be :{{pred_val}}</p>
-    <p>The difference between ideal and actual price is ={{((pred_val-data[0][2]|int)/data[0][2]|int)*100}}</p>
-    <p style="visibility:hidden;">Area = {{data[0][-6]}}</p>
-    <p style="visibility:hidden;">Monthly avg of this area is ={{monthly_avg}}</p>
-    <p style="visibility:hidden;">The difference between Monthly_AVG and actual house price is ={{((monthly_avg-data[0][2]|int)/data[0][2]|int)*100}}</p>
     <script>
         function initMap() {
         const uluru = { lat: {{data[0][-5]}}, lng:{{data[0][-4]}} };
