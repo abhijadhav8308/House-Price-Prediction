@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Register</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
+
 <body>
 	{% extends "header.html" %}
 
@@ -17,19 +19,23 @@
 					<span class="login100-form-title p-b-26">
 						Register Here
 					</span>
-					
+
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="uname" placeholder="Username">
+						<input class="input100" type="text" name="uname" placeholder="Enter Username" minlength="2"
+							maxlength="20" required>
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="fname" placeholder="Fullname">
+						<input class="input100" type="text" name="fname" placeholder="Enter Fullname" minlength="2"
+							maxlength="30" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)
+							|| (event.charCode==32)" required>
 						<span class="focus-input100"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="email" placeholder="Email">
+					<div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+						<input class="input100" type="email" name="email" placeholder="Enter Email" maxlength="30"
+							required>
 						<span class="focus-input100"></span>
 					</div>
 
@@ -37,15 +43,8 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass" placeholder="Password">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-						<input class="input100" type="password" name="cpass" placeholder="Confirm Password">
+						<input class="input100" type="password" name="pass" placeholder="Enter Password" minlength="4"
+							maxlength="12" required>
 						<span class="focus-input100"></span>
 					</div>
 
@@ -58,18 +57,19 @@
 						</div>
 					</div>
 				</form>
-					<div class="text-center p-t-115">
-						<span class="txt1">
-							Already have an account?
-						</span>
+				<div class="text-center p-t-115">
+					<span class="txt1">
+						Already have an account?
+					</span>
 
-						<a class="txt2" href="{{url_for('login')}}">
-							Sign In
-						</a>
-					</div>
+					<a class="txt2" href="{{url_for('login')}}">
+						Sign In
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
 	{% endblock %}
 </body>
+
 </html>

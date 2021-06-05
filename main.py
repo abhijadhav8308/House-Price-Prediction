@@ -69,7 +69,7 @@ def register():
                     (uname, fname, email, password))
         mysql.connection.commit()
         cur.close()
-        return render_template('login.html')
+        return redirect(url_for('login'))
     return render_template('register.html')
 
 
@@ -226,4 +226,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=False, port=5000)

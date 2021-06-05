@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
+
 <body>
 	{% extends "header.html" %}
 
@@ -17,9 +19,9 @@
 					<span class="login100-form-title p-b-26">
 						Welcome
 					</span>
-					
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="email" placeholder="Email">
+
+					<div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+						<input class="input100" type="text" name="email" placeholder="Email" required>
 						<span class="focus-input100"></span>
 					</div>
 
@@ -27,7 +29,7 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" name="pass" placeholder="Password" required>
 						<span class="focus-input100"></span>
 					</div>
 
@@ -40,18 +42,19 @@
 						</div>
 					</div>
 				</form>
-					<div class="text-center p-t-115">
-						<span class="txt1">
-							Don’t have an account?
-						</span>
+				<div class="text-center p-t-115">
+					<span class="txt1">
+						Don’t have an account?
+					</span>
 
-						<a class="txt2" href="{{url_for('register')}}">
-							Sign Up
-						</a>
-					</div>
+					<a class="txt2" href="{{url_for('register')}}">
+						Sign Up
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
 	{% endblock %}
 </body>
+
 </html>
