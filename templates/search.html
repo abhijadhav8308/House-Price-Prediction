@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' data[i]='IE=edge'>
@@ -10,298 +11,303 @@
     <script src="../static/jquery-3.5.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <style>
-        .ui-slider{
-            width:90%;
-        }
-    </style>
 </head>
+
 <body>
-{% extends "header.html" %}
+    {% extends "header.html" %}
 
-{% block content %}
-<div class="main-div">
-<div class="filter">
-<form method="POST">
+    {% block content %}
+    <div class="main-div">
+        <div class="filter">
+            <form method="POST">
 
-    <section filter="area">
-        <h3>Area</h3>
-        <p>
-            <input type="text" id="area_amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-        </p>
-        <div class="common_selector filter-option" id="slider-range-2"></div>
-    </section>   
+                <section filter="area">
+                    <h3>Area</h3>
+                    <p>
+                        <input type="text" id="area_amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                    </p>
+                    <div class="common_selector filter-option" id="slider-range-2"></div>
+                </section>
 
-    <section filter="price">
-        <h3>Price range</h3>
-        <p>
-            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-        </p>
-        <div class="common_selector filter-option" id="slider-range"></div>
-    </section>      
+                <section filter="price">
+                    <h3>Price range</h3>
+                    <p>
+                        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                    </p>
+                    <div class="common_selector filter-option" id="slider-range"></div>
+                </section>
 
-    <section filter="bedrooms">
-        <h3>Bedrooms</h3>
-        <ul class="filter-menu">
-            <li class="filter-option"><input type="checkbox" class="common_selector bedrooms" value="1"/>1</li>
-            <li class="filter-option"><input type="checkbox" class="common_selector bedrooms" value="2"/>2</li>
-            <li class="filter-option"><input type="checkbox" class="common_selector bedrooms" value="3"/>3</li>
-            <li class="filter-option"><input type="checkbox" class="common_selector bedrooms" value="4"/>4</li>
-            <li class="filter-option"><input type="checkbox" class="common_selector bedrooms" value="5"/>5 & more</li>
-        </ul>
-    </section>
+                <section filter="bedrooms">
+                    <h3>Bedrooms</h3>
+                    <ul class="filter-menu">
+                        <li class="filter-option"><input type="checkbox" class="common_selector bedrooms" value="1" />1
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector bedrooms" value="2" />2
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector bedrooms" value="3" />3
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector bedrooms" value="4" />4
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector bedrooms" value="5" />5
+                            & more</li>
+                    </ul>
+                </section>
 
-    <section filter="bathrooms">
-        <h3>Bathrooms</h3>
-        <ul class="filter-menu">
-            <li class="filter-option"><input type="checkbox" class="common_selector bathrooms" value="1"/>1</li>
-            <li class="filter-option"><input type="checkbox" class="common_selector bathrooms" value="2"/>2</li>
-            <li class="filter-option"><input type="checkbox" class="common_selector bathrooms" value="3"/>3</li>
-            <li class="filter-option"><input type="checkbox" class="common_selector bathrooms" value="4"/>4</li>
-            <li class="filter-option"><input type="checkbox" class="common_selector bathrooms" value="5"/>5 & more</li>
-        </ul>
-    </section>
+                <section filter="bathrooms">
+                    <h3>Bathrooms</h3>
+                    <ul class="filter-menu">
+                        <li class="filter-option"><input type="checkbox" class="common_selector bathrooms" value="1" />1
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector bathrooms" value="2" />2
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector bathrooms" value="3" />3
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector bathrooms" value="4" />4
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector bathrooms" value="5" />5
+                            & more</li>
+                    </ul>
+                </section>
 
-    <section filter="floors">
-        <h3>Floors</h3>
-        <ul class="filter-menu">
-            <li class="filter-option"><input type="checkbox" class="common_selector floors" value="1"/>1</li>
-            <li class="filter-option"><input type="checkbox" class="common_selector floors" value="2"/>2</li>
-            <li class="filter-option"><input type="checkbox" class="common_selector floors" value="3"/>3 & more</li>
-        </ul>
-    </section>
+                <section filter="floors">
+                    <h3>Floors</h3>
+                    <ul class="filter-menu">
+                        <li class="filter-option"><input type="checkbox" class="common_selector floors" value="1" />1
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector floors" value="2" />2
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector floors" value="3" />3 &
+                            more</li>
+                    </ul>
+                </section>
 
-    <section filter="cond">
-        <h3>Condition</h3>
-        <ul class="filter-menu">
-            <li class="filter-option"><input type="checkbox" class="common_selector cond" value="5"/>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-            </li>
-            <li class="filter-option"><input type="checkbox" class="common_selector cond" value="4"/>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star"></a>
-            </li>
-            <li class="filter-option"><input type="checkbox" class="common_selector cond" value="3"/>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
-            </li>
-            <li class="filter-option"><input type="checkbox" class="common_selector cond" value="2"/>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
-            </li>
-            <li class="filter-option"><input type="checkbox" class="common_selector cond" value="1"/>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
-            </li>
-        </ul>
-    </section>
+                <section filter="cond">
+                    <h3>Condition</h3>
+                    <ul class="filter-menu">
+                        <li class="filter-option"><input type="checkbox" class="common_selector cond" value="5" />
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector cond" value="4" />
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star"></a>
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector cond" value="3" />
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star "></a>
+                            <a class="fa fa-star "></a>
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector cond" value="2" />
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star "></a>
+                            <a class="fa fa-star "></a>
+                            <a class="fa fa-star "></a>
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector cond" value="1" />
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star "></a>
+                            <a class="fa fa-star "></a>
+                            <a class="fa fa-star "></a>
+                            <a class="fa fa-star "></a>
+                        </li>
+                    </ul>
+                </section>
 
-    <section filter="view">
-        <h3>View</h3>
-        <ul class="filter-menu">
-            <li class="filter-option"><input type="checkbox" class="common_selector view" value="4"/>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-            </li>
-            <li class="filter-option"><input type="checkbox" class="common_selector view" value="3"/>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star"></a>
-            </li>
-            <li class="filter-option"><input type="checkbox" class="common_selector view" value="2"/>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
-            </li>
-            <li class="filter-option"><input type="checkbox" class="common_selector view" value="1"/>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
-            </li>
-            <li class="filter-option"><input type="checkbox" class="common_selector view" value="0"/>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
-            </li>
-        </ul>
-    </section>
+                <section filter="view">
+                    <h3>View</h3>
+                    <ul class="filter-menu">
+                        <li class="filter-option"><input type="checkbox" class="common_selector view" value="4" />
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector view" value="3" />
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star"></a>
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector view" value="2" />
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star "></a>
+                            <a class="fa fa-star "></a>
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector view" value="1" />
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star "></a>
+                            <a class="fa fa-star "></a>
+                            <a class="fa fa-star "></a>
+                        </li>
+                        <li class="filter-option"><input type="checkbox" class="common_selector view" value="0" />
+                            <a class="fa fa-star checked"></a>
+                            <a class="fa fa-star "></a>
+                            <a class="fa fa-star "></a>
+                            <a class="fa fa-star "></a>
+                            <a class="fa fa-star "></a>
+                        </li>
+                    </ul>
+                </section>
 
-</form>
-</div>
-<div class="container">
-</div>
-</div>
-<input type="text" id='searchkey' value="{{searchkey}}" style="visibility: hidden;">
-<script>
-var js_dict = {
+            </form>
+        </div>
+        <div class="container">
+        </div>
+    </div>
+    <input type="text" id='searchkey' value="{{searchkey}}" style="visibility: hidden;">
+    <script>
+        var js_dict = {
     {% for k, v in area_dict.items() %}
-    "{{ k }}": "{{ v }}",
-    {% endfor %}
+        "{{ k }}": "{{ v }}",
+            {% endfor %}
 };
-var searchkey = document.getElementById('searchkey').value
+        var searchkey = document.getElementById('searchkey').value
 
-$(document).ready(function(){
-    set_sliders();
-    filter_data();
-})    
+        $(document).ready(function () {
+            set_sliders();
+            filter_data();
+        })
 
-function set_sliders(){
-    $( "#slider-range" ).slider({
-      range: true,
-      min: 60000,
-      max: 5500000,
-      values: [ 60000, 5500000],
-      slide: function( event, ui ) {
-        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-      }
-    });
-    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-      
-    $( "#slider-range-2" ).slider({
-      range: true,
-      min: 350,
-      max: 15000,
-      values: [ 350, 15000],
-      slide: function( event, ui ) {
-        $( "#area_amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-      }
-    });
-    $( "#area_amount" ).val( "$" + $( "#slider-range-2" ).slider( "values", 0 ) +
-      " - $" + $( "#slider-range-2" ).slider( "values", 1 ) );
-}
+        function set_sliders() {
+            $("#slider-range").slider({
+                range: true,
+                min: 60000,
+                max: 5500000,
+                values: [60000, 5500000],
+                slide: function (event, ui) {
+                    $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                }
+            });
+            $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+                " - $" + $("#slider-range").slider("values", 1));
 
-function filter_data(){
-    var bedrooms_sel = get_filter('bedrooms');
-    var bathrooms_sel = get_filter('bathrooms');
-    var floors_sel = get_filter('floors');
-    var view_sel = get_filter('view');
-    var cond_sel = get_filter('cond');
-    var minprice = $( "#slider-range" ).slider( "values", 0 );
-    var maxprice = $( "#slider-range" ).slider( "values", 1 );
-    var minarea = $( "#slider-range-2" ).slider( "values", 0 );
-    var maxarea = $( "#slider-range-2" ).slider( "values", 1 );
+            $("#slider-range-2").slider({
+                range: true,
+                min: 350,
+                max: 15000,
+                values: [350, 15000],
+                slide: function (event, ui) {
+                    $("#area_amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                }
+            });
+            $("#area_amount").val("$" + $("#slider-range-2").slider("values", 0) +
+                " - $" + $("#slider-range-2").slider("values", 1));
+        }
 
-    $.ajax({
-        url:"http://127.0.0.1:5000/filter_data",
-        method:"POST",
-        contentType:"application/json",
-        data:JSON.stringify({bedrooms_sel:bedrooms_sel,bathrooms_sel:bathrooms_sel,floors_sel:floors_sel,view_sel:view_sel,cond_sel:cond_sel,searchkey:searchkey,minprice:minprice,maxprice:maxprice,minarea:minarea,maxarea:maxarea}),
-        success:function(data){
-            var html_data = "";
-            for(var i=0; i < data.res.length;i++)
-            {
-                html_data += `  
+        function filter_data() {
+            var bedrooms_sel = get_filter('bedrooms');
+            var bathrooms_sel = get_filter('bathrooms');
+            var floors_sel = get_filter('floors');
+            var view_sel = get_filter('view');
+            var cond_sel = get_filter('cond');
+            var minprice = $("#slider-range").slider("values", 0);
+            var maxprice = $("#slider-range").slider("values", 1);
+            var minarea = $("#slider-range-2").slider("values", 0);
+            var maxarea = $("#slider-range-2").slider("values", 1);
+
+            $.ajax({
+                url: "http://127.0.0.1:5000/filter_data",
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({ bedrooms_sel: bedrooms_sel, bathrooms_sel: bathrooms_sel, floors_sel: floors_sel, view_sel: view_sel, cond_sel: cond_sel, searchkey: searchkey, minprice: minprice, maxprice: maxprice, minarea: minarea, maxarea: maxarea }),
+                success: function (data) {
+                    var html_data = "";
+                    for (var i = 0; i < data.res.length; i++) {
+                        html_data += `  
                 <div class="column">
-                    <img src="{{url_for('static',filename='2.jpg')}}" >
+                    <div>
+                    <img src="{{url_for('static',filename='house_img.jpg')}}" >
+                    </div>
                     <div class="desc">
-                        <p class="item-title"><a href="/property/`+data.res[i]['id']+`">`+data.res[i]['bedrooms']+` Bedroom House Located at `+js_dict[data.res[i]['zipcode']]+` Added by `+ data.res[i]['added_by']+`</p>    
+                        <p class="item-title"><a href="/property/`+ data.res[i]['id'] + `">` + data.res[i]['bedrooms'] + ` Bedroom House Located at ` + js_dict[data.res[i]['zipcode']] + ` Added by ` + data.res[i]['added_by'] + `</p>    
                         `;
 
-                if(data.res[i]['cond'] == 5)
-                {
-                    html_data+=`<a class="fa fa-star checked"></a>
+                        if (data.res[i]['cond'] == 5) {
+                            html_data += `<a class="fa fa-star checked"></a>
                     <a class="fa fa-star checked"></a>
                     <a class="fa fa-star checked"></a>
                     <a class="fa fa-star checked"></a>
                     <a class="fa fa-star checked"></a>`;
-                }
-                        
-                else if(data.res[i]['cond'] == 4)
-                {
-                    html_data+=`<a class="fa fa-star checked"></a>
-                    <a class="fa fa-star checked"></a>
-                    <a class="fa fa-star checked"></a>
-                    <a class="fa fa-star checked"></a>
-                    <a class="fa fa-star "></a>`;
-                }
-                else if(data.res[i]['cond'] == 3)
-                {
-                    html_data+=`<a class="fa fa-star checked"></a>
-                    <a class="fa fa-star checked"></a>
-                    <a class="fa fa-star checked"></a>
-                    <a class="fa fa-star "></a>
-                    <a class="fa fa-star "></a>`;
-                }
+                        }
 
-                else if(data.res[i]['cond'] == 2)
-                {
-                    html_data+=`<a class="fa fa-star checked"></a>
+                        else if (data.res[i]['cond'] == 4) {
+                            html_data += `<a class="fa fa-star checked"></a>
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star "></a>`;
+                        }
+                        else if (data.res[i]['cond'] == 3) {
+                            html_data += `<a class="fa fa-star checked"></a>
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star checked"></a>
+                    <a class="fa fa-star "></a>
+                    <a class="fa fa-star "></a>`;
+                        }
+
+                        else if (data.res[i]['cond'] == 2) {
+                            html_data += `<a class="fa fa-star checked"></a>
                     <a class="fa fa-star checked"></a>
                     <a class="fa fa-star "></a>
                     <a class="fa fa-star "></a>
                     <a class="fa fa-star "></a>`;
-                }
+                        }
 
-                else if(data.res[i]['cond'] == 1)
-                {
-                    html_data+=`<a class="fa fa-star checked"></a>
+                        else if (data.res[i]['cond'] == 1) {
+                            html_data += `<a class="fa fa-star checked"></a>
                     <a class="fa fa-star "></a>
                     <a class="fa fa-star "></a>
                     <a class="fa fa-star "></a>
                     <a class="fa fa-star "></a>`;
-                }
-                html_data+=`<ul>  
+                        }
+                        html_data += `<ul>  
                     <li>
-                        <a class="item-desc">Area : `+data.res[i]['sqft_living']+` sqft</a>
+                        <a class="item-desc">Area : `+ data.res[i]['sqft_living'] + ` sqft</a>
                     </li>
                     <li>
-                        <a class="item-desc">Year Built : `+data.res[i]['yr_built']+`</a>
+                        <a class="item-desc">Year Built : `+ data.res[i]['yr_built'] + `</a>
                     </li>
                     <li>
-                        <a class="item-desc">Price : `+data.res[i]['price']+` $</a>
+                        <a class="item-desc">Price : `+ data.res[i]['price'] + ` $</a>
                     </li>
                 </ul> 
             </div>
     </div>
-`;}            
-            $('.container').html(html_data);
-            console.log(data);
+`;
+                    }
+                    $('.container').html(html_data);
+                    console.log(data);
+                }
+            });
         }
-    });
-}
 
-function get_filter(class_name){
-    var filter = [];
-    $('.'+class_name+':checked').each(function(){
-        filter.push($(this).val());
-    });
-    return filter;
-}
+        function get_filter(class_name) {
+            var filter = [];
+            $('.' + class_name + ':checked').each(function () {
+                filter.push($(this).val());
+            });
+            return filter;
+        }
 
-$('.common_selector').click(function(){
-    filter_data();
-})
-</script>
-{% endblock %}
+        $('.common_selector').click(function () {
+            filter_data();
+        })
+    </script>
+    {% endblock %}
 </body>
+
 </html>
-
-
