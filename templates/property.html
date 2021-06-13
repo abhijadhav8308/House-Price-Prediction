@@ -117,8 +117,24 @@
         </div>
         <div id="map"></div>
     </div>
-    <div class="chart-container">
-        <canvas id="myChart"></canvas>
+    <h3 class="related_header">Related Properties</h3>
+    <div class="related_properties">
+        {% for property in related_houses%}
+            <div class="property">
+                <div class="img">
+                    <a href="/property/{{property[0]}}"><img src="{{url_for('static',filename='house_img.jpg')}}"></a>
+                </div>
+                <div class="property-desc">
+                    <p>Price: {{property[2]}} Rs</p>
+                    <p>Area: {{property[5]}} Sqft</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="chart-super-container">
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
     </div>
     <script>
         function initMap() {

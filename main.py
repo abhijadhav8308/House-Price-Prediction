@@ -79,9 +79,10 @@ def property(id):
     cur = mysql.connection.cursor()
     cur.execute("select * from house where id={}".format(id))
     result = cur.fetchall()
-    cur.execute(
-        "select monthly_avg from area where zipcode={}".format(result[0][-6]))
+    cur.execute("select monthly_avg from area where zipcode={}".format(result[0][-6]))
     result2 = cur.fetchone()
+    cur.execute("select * from house where zipcode={} order by ABS(price - {}) limit 5".format(result[0][-6],result[0][2]))
+    result3 = cur.fetchall()
     cur.close()
     col = ['bedrooms', 'bathrooms', 'sqft_living', 'sqft_lot', 'floors', 'waterfront', 'view', 'condition', 'grade',
            'sqft_above', 'sqft_basement', 'yr_built', 'yr_renovated', 'lat', 'long', 'sqft_living15', 'sqft_lot15']
@@ -98,7 +99,7 @@ def property(id):
         temp = pred.predicted_mean.to_numpy()[-1]
         temp = temp - diff
         future_values.append(temp)
-    return render_template('property.html', data=result, area_dict=area_dict, pred_val=pred_val, future_values=future_values, model_name=result[0][-6], monthly_avg=result2[0])
+    return render_template('property.html', data=result, area_dict=area_dict, pred_val=pred_val, future_values=future_values, model_name=result[0][-6], monthly_avg=result2[0], related_houses = result3)
 
 
 @app.route('/search', methods=['POST'])

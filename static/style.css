@@ -496,6 +496,7 @@ ul{
   justify-content: space-evenly;
   width:100%;
   height:100%;  
+  margin-bottom: 15px;
 }
 
 .main-container img{  
@@ -520,8 +521,12 @@ ul{
 
 .chart-container{
   position: relative;
-  height:40vh;
-  width:100%;
+  width:60vmax;
+}
+
+.chart-super-container{
+  display:flex;
+  justify-content: center;
 }
 
 input[type="search"]{
@@ -651,4 +656,31 @@ input[type="search"]{
 
 .choice{
   margin-bottom:12px;
+}
+
+.related_header{
+  font-size: 2em;
+  text-align: center;
+  color:cornflowerblue;
+}
+
+.related_properties{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.related_properties .property{
+  border:1px solid black;
+  margin: 20px 0px;
+}
+
+.related_properties .img img{
+  width:200px;
+}
+
+.related_properties .property .property-desc{
+  padding: 10px;
 }
