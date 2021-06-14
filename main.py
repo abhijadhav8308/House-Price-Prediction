@@ -99,6 +99,7 @@ def property(id):
         temp = pred.predicted_mean.to_numpy()[-1]
         temp = temp - diff
         future_values.append(temp)
+    future_values = [abs(i) for i in future_values]
     return render_template('property.html', data=result, area_dict=area_dict, pred_val=pred_val, future_values=future_values, model_name=result[0][-6], monthly_avg=result2[0], related_houses = result3)
 
 
@@ -227,4 +228,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=False, port=5000)
