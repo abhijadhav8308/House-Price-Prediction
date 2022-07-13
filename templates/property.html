@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' type='text/css' media='screen' href='../static/style.css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js" integrity="sha256-2JRzNxMJiS0aHOJjG+liqsEOuBb6++9cY4dSOyiijX4=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/d8e35abd5c.js" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js'></script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYzXj5wF4L6mChyyc5xwfb2QT1QEZ9VN8&callback=initMap&libraries=&v=weekly"
@@ -21,35 +22,35 @@
             <div class="child1">
             <p class="item-title">{{ data[0][3]|string + " Bedroom House Located at " + area_dict[data[0][-6]|int] + " Added by "+ data[0][-1]|string}}</p>
             {% if data[0][10] == 5%}
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
             {% elif data[0][10] == 4%}
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star "></a>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star "></i>
             {% elif data[0][10] == 3%}
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star "></i>
+                <i class="fas fa-star "></i>
             {% elif data[0][10] == 2%}
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star "></i>
+                <i class="fas fa-star "></i>
+                <i class="fas fa-star "></i>
             {% elif data[0][10] == 1%}
-                <a class="fa fa-star checked"></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
-                <a class="fa fa-star "></a>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star "></i>
+                <i class="fas fa-star "></i>
+                <i class="fas fa-star "></i>
+                <i class="fas fa-star "></i>
             {% endif %}
             <div class="child2">
             <ul>  

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' type='text/css' media='screen' href='../static/style.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js" integrity="sha256-2JRzNxMJiS0aHOJjG+liqsEOuBb6++9cY4dSOyiijX4=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/d8e35abd5c.js" crossorigin="anonymous"></script>
     <title>Homepage</title>
     <style>
@@ -93,7 +94,7 @@
         <ul class="navbar">
             {% if session['logged_in'] %}
             <div class="dropdown">
-                <li class="navbar-items"><a><i class="far fa-user fa-lg"></i></a></li>
+                <li class="navbar-items"><a><i class="fas fa-user fa-lg"></i></a></li>
                 <div class="dropdown-content">
                     <li><a class="active" href="{{url_for('update_profile')}}">My Profile</a></li>
                     <li><a class="active" href="{{url_for('add_property')}}">Add Property</a></li>
